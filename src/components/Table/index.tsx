@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "./styles";
+import { Container, InputSection, InputBlock, ResultsSection } from "./styles";
 
 interface IDataSheetInfo {
   nome: string;
@@ -17,23 +17,54 @@ const Table = () => {
 
   return (
     <Container>
-      <section>
+      <InputSection>
         <form>
-          <label htmlFor="ingredient">Ingrediente</label>
-          <input type="text" name="ingredient" id="" />
+          <InputBlock>
+            <label htmlFor="ingredient">Ingrediente</label>
+            <input
+              placeholder="Nome do ingrediente"
+              type="text"
+              name="ingredient"
+              id=""
+            />
+          </InputBlock>
+          <InputBlock>
+            <label htmlFor="net-amount">Quantidade Liquida</label>
+            <input type="text" name="net-amount" id="" />
+          </InputBlock>
+          <InputBlock>
+            <label htmlFor="unity">Unidade</label>
+            <input type="text" name="unity" id="" />
+          </InputBlock>
+          <InputBlock>
+            <label htmlFor="yield">Rendimento (%)</label>
+            <input type="text" name="yield" id="" />
+          </InputBlock>
+          <InputBlock>
+            <label htmlFor="correction-factor">Fator de Correção</label>
+            <input type="text" name="correction-factor" id="" />
+          </InputBlock>
+          <InputBlock>
+            <label htmlFor="gross-unit-cost">Custo Bruto Unitário</label>
+            <input type="text" name="gross-unit-cost" id="" />
+          </InputBlock>
         </form>
-      </section>
+        <ResultsSection>
+          <div>Tela 1</div>
+          <div>Tela 2</div>
+        </ResultsSection>
+      </InputSection>
       <section>
         <table>
           <tr>
-            <th>INGREDIENTES</th>
-            <th>QTDE. LIQ</th>
-            <th>UNIDADE</th>
+            <th>Ingredientes</th>
+            <th>Quantidade Liquida</th>
+            <th>Unidade</th>
             <th>Rendimento %</th>
-            <th>Fator de Correcao</th>
-            <th>QTDE BRUTA</th>
-            <th>CUSTO BRUTO UNIT.</th>
-            <th>CUSTO TOTAL</th>
+            <th>Fator de Correção</th>
+            <th>Quantidade Bruta</th>
+            <th>Custo Bruto Unitário</th>
+            <th>Custo Total</th>
           </tr>
           {datasheetInfo &&
             datasheetInfo.map((ingredient) => (
