@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   font-family: "Recursive", sans-serif;
 
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   flex-direction: column;
   padding: 16px;

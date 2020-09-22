@@ -1,7 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
-import * as Yup from "yup";
-import { FormHandles } from "@unform/core";
-import { Form } from "@unform/web";
+import React, { useState, useCallback } from "react";
 
 import Input from "../../components/Input";
 
@@ -25,88 +22,84 @@ interface IDataSheetInfo {
 }
 
 const Table: React.FC = () => {
-  const formRef = useRef<FormHandles>(null);
-
-  // const [datasheetInfo, setDataSheetInfo] = useState<IDataSheetInfo>(
-  //   {} as IDataSheetInfo
-  // );
   const [table, setTable] = useState<IDataSheetInfo[]>([]);
-
-  const handleSubmit = useCallback(
-    async (data: IDataSheetInfo) => {
-      try {
-        console.log("1");
-        formRef.current?.setErrors({});
-        console.log("2");
-
-        const schema = Yup.object().shape({
-          name: Yup.string().required(" Nome obrigatório."),
-          netAmount: Yup.number().required("Quantidade liquida obrigatória."),
-          unit: Yup.number().required("Unidade obrigatória."),
-          yield: Yup.number().required("Rendimento obrigatório."),
-          correctionFactor: Yup.number().required("FC obrigatório."),
-          grossCost: Yup.number(),
-          grossUnitCost: Yup.number().required("CBU obrigatório."),
-          totalCost: Yup.number(),
-        });
-        console.log("3");
-
-        await schema.validate(data, {
-          abortEarly: false,
-        });
-
-        console.log("4");
-
-        setTable([...table, data]);
-      } catch (error) {
-        console.log("5");
-        if (error instanceof Yup.ValidationError) {
-          formRef.current?.setErrors(error);
-
-          return;
-        }
-      }
-    },
-    [table]
+  const [ingredient, setIngredient] = useState<IDataSheetInfo>(
+    {} as IDataSheetInfo
   );
+
+  const addOnTable = useCallback(
+    (event) => {
+      event.preventDefault();
+
+      setTable([...table, ingredient]);
+    },
+    [ingredient, table]
+  );
+
+  console.log(ingredient);
+  console.log(table);
 
   return (
     <Container>
       <InputSection>
-        <Form ref={formRef} onSubmit={handleSubmit}>
+        <form>
           <Input
             name="ingredient"
             title="Ingredientes"
             placeholder="Qual o nome do ingrediente?"
+            onChange={(info) => {
+              setIngredient({ ...ingredient, name: info.target.value });
+            }}
           />
           <Input
             name="netAmount"
             title="Quantidade Liquida(ml)"
             placeholder="Quantos mls?"
+            onChange={(info) => {
+              setIngredient({ ...ingredient, netAmount: info.target.value });
+            }}
           />
           <Input
             name="unit"
             title="Unidade(s)"
             placeholder="Quantos unidades?"
+            onChange={(info) => {
+              setIngredient({ ...ingredient, unit: info.target.value });
+            }}
           />
           <Input
             name="yield"
             title="Rendimento"
             placeholder="Qual o rendimento?"
+            onChange={(info) => {
+              setIngredient({ ...ingredient, yield: info.target.value });
+            }}
           />
           <Input
             name="correctionFactor"
             title="Fator de Correção"
             placeholder="Qual o FC?"
+            onChange={(info) => {
+              setIngredient({
+                ...ingredient,
+                correctionFactor: info.target.value,
+              });
+            }}
           />
           <Input
             name="grossUnitCost"
             title="Custo Bruto Unitário"
             placeholder="Qual o CBU?"
+            onChange={(info) => {
+              setIngredient({
+                ...ingredient,
+                grossUnitCost: info.target.value,
+              });
+            }}
           />
 
-          <button type="submit">Add</button>
-        </Form>
+          <button onClick={(event) => addOnTable(event)}>Calcular</button>
+        </form>
         <ResultsSection>
           <ScreenOne>Tela 1</ScreenOne>
           <ScreenTwo>Tela 2</ScreenTwo>
