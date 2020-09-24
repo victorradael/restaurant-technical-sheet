@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const colors = {
+  backgroundColor: "#282a36",
+  white: " #f8f8f2",
+  green: "#50fa7b",
+  grey: "#777",
+  greyTwo: "#44475a",
+  orange: "#ffb86c",
+  purple: "#6272a4",
+  purpleTwo: "#bd93f9",
+};
+
 export const Container = styled.div`
   display: flex;
   font-family: "Recursive", sans-serif;
@@ -8,36 +19,36 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 16px;
-  background: #282a36;
-  color: #f8f8f2;
+  background: ${colors.backgroundColor};
+  color: ${colors.white};
 
   table {
-    border: 1px solid #50fa7b;
+    border: 1px solid ${colors.green};
     width: 100%;
     text-align: center;
     border-radius: 0.4rem;
 
     td {
-      border: 1px solid #777;
+      border: 1px solid ${colors.grey};
       border-radius: 0.4rem;
 
       transition: 0.4s;
     }
 
     th {
-      border: 1px solid #ffb86c;
+      border: 1px solid ${colors.orange};
       border-radius: 0.4rem;
       padding: 0.4rem;
 
       transition: 0.4s;
       &:hover {
-        background: #50fa7b;
-        color: #6272a4;
-        border: 1px solid #ffb86c;
+        background: ${colors.green};
+        color: ${colors.purple};
+        border: 1px solid ${colors.orange};
       }
     }
     td {
-      border: 1px solid #50fa7b;
+      border: 1px solid ${colors.green};
       border-radius: 0.4rem;
       padding: 0.4rem;
 
@@ -63,13 +74,13 @@ export const ResultsSection = styled.section`
 
 export const ScreenOne = styled.div`
   margin: 0.4rem 0;
-  background: #44475a;
-  border: 1px solid #bd93f9;
+  background: ${colors.greyTwo};
+  border: 1px solid ${colors.purpleTwo};
   border-radius: 0.4rem;
 `;
 export const ScreenTwo = styled.div`
   margin: 0.4rem 0;
-  background: #44475a;
-  border: 1px solid #bd93f9;
+  background: ${colors.greyTwo};
+  border: 1px solid ${colors.purpleTwo};
   border-radius: 0.4rem;
 `;
