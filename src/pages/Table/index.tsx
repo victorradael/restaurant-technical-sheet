@@ -5,6 +5,7 @@ import Input from "../../components/Input";
 import {
   Container,
   InputSection,
+  Button,
   ResultsSection,
   ScreenOne,
   ScreenTwo,
@@ -98,7 +99,7 @@ const Table: React.FC = () => {
             }}
           />
 
-          <button onClick={(event) => addOnTable(event)}>Calcular</button>
+          <Button onClick={(event) => addOnTable(event)}>Calcular</Button>
         </form>
         <ResultsSection>
           <ScreenOne>Tela 1</ScreenOne>
