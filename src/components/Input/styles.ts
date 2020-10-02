@@ -20,17 +20,18 @@ export const InputBlock = styled.div`
     border-radius: 4px;
     height: 1.6rem;
     background: #06537d;
-    color: #50fa7b;
+    color: #f8f8f2;
     font-weight: bold;
     border: 2px solid #ffa53b;
     padding: 0 0.8rem;
+    margin-left: 0.8rem;
 
     &:focus {
       outline: none;
     }
 
     &::placeholder {
-      color: #22a0e4;
+      color: #f8f8f2;
       font-weight: bold;
     }
   }

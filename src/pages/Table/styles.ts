@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const colors = {
   backgroundColor: "#3085B3",
+
   white: " #f8f8f2",
-  green: "#50fa7b",
-  grey: "#777",
+
   greyTwo: "#225E7E",
   orange: "#ffa53b",
   orangeTwo: "#f8b96e",
-  purple: "#6272a4",
+  // purple: "#6272a4",
   yellow: "#FFD93B",
 };
 
@@ -32,7 +32,7 @@ export const Container = styled.div`
     color: ${colors.yellow};
 
     td {
-      border: 2px solid ${colors.grey};
+      border: 2px solid ${colors.orangeTwo};
       border-radius: 0.4rem;
 
       transition: 0.4s;
@@ -65,12 +65,12 @@ export const InputSection = styled.section`
   grid-template-columns: 1fr 1fr;
   width: 100%;
   max-width: 880px;
-  margin-bottom: 1.6rem;
-  padding: 0.8rem;
+  padding: 0.4rem;
 `;
 
 export const Button = styled.button`
   width: 100%;
+  max-width: 880px;
   height: 2.4rem;
 
   background-color: ${colors.orangeTwo};
@@ -99,10 +99,57 @@ export const ScreenOne = styled.div`
   background: ${colors.greyTwo};
   border: 2px solid ${colors.orangeTwo};
   border-radius: 0.4rem;
+  padding: 0.8rem;
+  transition: 0.4s;
+
+  p {
+    margin: 0;
+    color: ${colors.orangeTwo};
+    font-weight: bold;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 3px 4px ${colors.orangeTwo};
+  }
 `;
 export const ScreenTwo = styled.div`
   margin: 0.4rem 0;
   background: ${colors.greyTwo};
   border: 2px solid ${colors.orangeTwo};
   border-radius: 0.4rem;
+  padding: 0.8rem;
+
+  transition: 0.4s;
+
+  p {
+    margin: 0;
+    color: ${colors.orangeTwo};
+    font-weight: bold;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 3px 4px ${colors.orangeTwo};
+  }
+`;
+
+export const StepsField = styled.textarea`
+  width: 100%;
+  max-width: 880px;
+  height: 6rem;
+
+  margin: 0.8rem;
+  background: ${colors.greyTwo};
+  border: 2px solid ${colors.orangeTwo};
+  border-radius: 0.4rem;
+  padding: 0.8rem 0;
+
+  color: ${colors.white};
+  font-weight: bold;
+  font-size: 0.8rem;
+
+  &::placeholder {
+    color: ${colors.white};
+    margin-left: 0.4rem;
+    font-weight: bold;
+  }
 `;

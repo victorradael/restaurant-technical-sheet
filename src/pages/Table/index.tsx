@@ -9,6 +9,7 @@ import {
   ResultsSection,
   ScreenOne,
   ScreenTwo,
+  StepsField,
 } from "./styles";
 
 interface IDataSheetInfo {
@@ -63,7 +64,7 @@ const Table: React.FC = () => {
           <Input
             name="unit"
             title="Unidade(s)"
-            placeholder="Quantos unidades?"
+            placeholder="Quantas unidades?"
             onChange={(info) => {
               setIngredient({ ...ingredient, unit: info.target.value });
             }}
@@ -98,14 +99,22 @@ const Table: React.FC = () => {
               });
             }}
           />
-
-          <Button onClick={(event) => addOnTable(event)}>Calcular</Button>
         </form>
         <ResultsSection>
-          <ScreenOne>Tela 1</ScreenOne>
-          <ScreenTwo>Tela 2</ScreenTwo>
+          <ScreenOne>
+            <p>Custos & Outros</p>
+          </ScreenOne>
+          <ScreenTwo>
+            <p>Passos & Anotações</p>
+          </ScreenTwo>
         </ResultsSection>
       </InputSection>
+      <Button onClick={(event) => addOnTable(event)}>Calcular</Button>
+      <StepsField
+        name="steps"
+        id="steps"
+        placeholder="Digite os passos de preparo e faça suas anotações."
+      />
       <section>
         <table>
           <thead>
